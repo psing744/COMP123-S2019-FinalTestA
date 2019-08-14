@@ -84,7 +84,7 @@ namespace COMP123_S2019_FinalTestA.Views
 
         private void generateAbilitiesButton_Click(object sender, EventArgs e)
         {
-            
+            //generating random abilities from 10 to 50
             fighitingDataLabel.Text = random.Next(10, 50).ToString();
             agilityDataLabel.Text = random.Next(10, 50).ToString();
             strengthDataLabel.Text = random.Next(10, 50).ToString();
@@ -93,6 +93,16 @@ namespace COMP123_S2019_FinalTestA.Views
             intutionDataLabel.Text = random.Next(10, 50).ToString();
             psycheDataLabel.Text = random.Next(10, 50).ToString();
             popularityDataLabel.Text = random.Next(10, 50).ToString();
+
+            //saving abilities in character object of hero class
+            Program.character.Fighting = fighitingDataLabel.Text;
+            Program.character.Agility = agilityDataLabel.Text;
+            Program.character.Strength = strengthDataLabel.Text;
+            Program.character.Endurance = enduranceDataLabel.Text;
+            Program.character.Reason = reasonDataLabel.Text;
+            Program.character.Intution = intutionDataLabel.Text;
+            Program.character.Psyche = psycheDataLabel.Text;
+            Program.character.Popularity = popularityDataLabel.Text;
         }
 
         private void HeroGenerator_Load(object sender, EventArgs e)
