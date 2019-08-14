@@ -159,5 +159,113 @@ namespace COMP123_S2019_FinalTestA.Views
         {
             GenerateRandomPowers();
         }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            // configuration for saveFileDialog
+            characterSaveFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            characterSaveFileDialog.FileName = "Hero.txt";
+            characterSaveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+
+
+            var result = characterSaveFileDialog.ShowDialog();
+            if (result != DialogResult.Cancel)
+            {
+                // open a stream to write
+                using (StreamWriter outputStream = new StreamWriter(
+                    File.Open(characterSaveFileDialog.FileName, FileMode.Create)))
+                {
+                    // write stuff to the file
+                    outputStream.WriteLine(heroNameChDataLabel.Text);
+                    outputStream.WriteLine(NameChDataLabel.Text);
+                    outputStream.WriteLine(fightingChDataLabel.Text);
+                    outputStream.WriteLine(agilityChDataLabel.Text);
+                    outputStream.WriteLine(strengthChDataLabel.Text);
+                    outputStream.WriteLine(enduranceChDataLabel.Text);
+                    outputStream.WriteLine(reasonChDataLabel.Text);
+                    outputStream.WriteLine(intutionChDataLabel.Text);
+                    outputStream.WriteLine(psycheChDataLabel.Text);
+                    outputStream.WriteLine(popularityChDataLabel.Text);
+                    //outputStream.WriteLine(Program.character.Powers[1]);
+                    //outputStream.WriteLine(Program.character.Powers[2]);
+                    //outputStream.WriteLine(Program.character.Powers[3]);
+
+                    // cleanup
+                    outputStream.Close();
+                    outputStream.Dispose();
+                }
+
+                MessageBox.Show("File Saved Successfully!", "Saving...",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void openToolStripButton_Click(object sender, EventArgs e)
+        {
+            // configuration for openFileDialog
+            CharacterOpenFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            CharacterOpenFileDialog.FileName = "Hero.txt";
+            CharacterOpenFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+
+            var result = CharacterOpenFileDialog.ShowDialog();
+
+            if (result != DialogResult.Cancel)
+            {
+                // open file stream to read
+                using (StreamReader inputStream = new StreamReader(
+                    File.Open(CharacterOpenFileDialog.FileName, FileMode.Open)))
+                {
+                    // read stuff from the file into the Student object
+                    heroNameChDataLabel.Text = inputStream.ReadLine();
+                    NameChDataLabel.Text = inputStream.ReadLine();
+                    fightingChDataLabel.Text = inputStream.ReadLine();
+                    agilityChDataLabel.Text = inputStream.ReadLine();
+                    strengthChDataLabel.Text = inputStream.ReadLine();
+                    enduranceChDataLabel.Text = inputStream.ReadLine();
+                    reasonChDataLabel.Text = inputStream.ReadLine();
+                    intutionChDataLabel.Text = inputStream.ReadLine();
+                    psycheChDataLabel.Text = inputStream.ReadLine();
+                    popularityChDataLabel.Text = inputStream.ReadLine();
+
+
+                    //cleanup
+                    inputStream.Close();
+                    inputStream.Dispose();
+                }
+
+                MainTabControl_SelectedIndexChanged(sender, e)
+            }
+        }
+
+        private void MainTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MainTabControl.SelectedIndex == 3)
+            {
+                heroNameChDataLabel.Text = Program.character.HeroName;
+                NameChDataLabel.Text = Program.character.FirstName + " " + Program.character.LastName;
+                fightingChDataLabel.Text = Program.character.Fighting;
+                agilityChDataLabel.Text = Program.character.Agility;
+                strengthChDataLabel.Text = Program.character.Strength;
+                enduranceChDataLabel.Text = Program.character.Endurance;
+                reasonChDataLabel.Text = Program.character.Reason;
+                intutionChDataLabel.Text = Program.character.Intution;
+                psycheChDataLabel.Text = Program.character.Psyche;
+                popularityChDataLabel.Text = Program.character.Popularity;
+                //firstPowerChDataLabel.Text = (Program.character.Powers[0]).ToString();
+                //firstPowerChDataLabel.Text = (Program.character.Powers[1]).ToString();
+                //firstPowerChDataLabel.Text = (Program.character.Powers[2]).ToString();
+                //firstPowerChDataLabel.Text = (Program.character.Powers[3]).ToString();
+            }
+        }
     }
 }
