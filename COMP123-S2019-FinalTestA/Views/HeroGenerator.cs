@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -16,6 +17,8 @@ namespace COMP123_S2019_FinalTestA.Views
 {
     public partial class HeroGenerator : COMP123_S2019_FinalTestA.Views.MasterForm
     {
+        Random random = new Random();
+
         public HeroGenerator()
         {
             InitializeComponent();
@@ -45,6 +48,34 @@ namespace COMP123_S2019_FinalTestA.Views
             {
                 MainTabControl.SelectedIndex++;
             }
+        }
+
+        private void generateNameButton_Click(object sender, EventArgs e)
+        {
+            //Inputing First Name
+            string[] firstNames;
+            firstNames = File.ReadAllLines("../../Data/firstNames.txt");
+            int indexFirstName = random.Next(firstNames.Length-1);
+            firstNameDataLabel.Text = firstNames[indexFirstName];
+
+            //Inputing Last Name
+            string[] lastNames;
+            lastNames = File.ReadAllLines("../../Data/lastNames.txt");
+            int indexLastName = random.Next(lastNames.Length-1);
+            lastNameDataLabel.Text = lastNames[indexLastName];
+        }
+
+        private void generateAbilitiesButton_Click(object sender, EventArgs e)
+        {
+            
+            fighitingDataLabel.Text = random.Next(10, 50).ToString();
+            agilityDataLabel.Text = random.Next(10, 50).ToString();
+            strengthDataLabel.Text = random.Next(10, 50).ToString();
+            enduranceDataLabel.Text = random.Next(10, 50).ToString();
+            reasonDataLabel.Text = random.Next(10, 50).ToString();
+            intutionDataLabel.Text = random.Next(10, 50).ToString();
+            psycheDataLabel.Text = random.Next(10, 50).ToString();
+            popularityDataLabel.Text = random.Next(10, 50).ToString();
         }
     }
 }
