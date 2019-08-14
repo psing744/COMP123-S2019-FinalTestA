@@ -1,9 +1,11 @@
-﻿using System;
+﻿using COMP123_S2019_FinalTestA.Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -18,8 +20,10 @@ namespace COMP123_S2019_FinalTestA.Views
     public partial class HeroGenerator : COMP123_S2019_FinalTestA.Views.MasterForm
     {
         Random random = new Random();
+        public static Power power;
         string[] firstNames;
         string[] lastNames;
+        List<string> PowerList = new List<string>();
 
         public HeroGenerator()
         {
@@ -109,6 +113,51 @@ namespace COMP123_S2019_FinalTestA.Views
         {
             LoadNames();
             GenerateNames();
+            LoadPowers();
+        }
+
+        public void LoadPowers()
+        {
+            //Inputing First Name
+            PowerList = File.ReadAllLines("../../Data/powers.txt").ToList();
+        }
+
+        public void GenerateRandomPowers()
+        {
+            //generating random index for PowersList
+            int indexPower1 = random.Next(PowerList.Count - 1);
+            int indexPower2 = random.Next(PowerList.Count - 1);
+            int indexPower3 = random.Next(PowerList.Count - 1);
+            int indexPower4 = random.Next(PowerList.Count - 1);
+        
+            //generating random power and assigning it to appropriate field
+            firstPowerDataLabel.Text = PowerList[indexPower1];
+            secondPowerDataLabel.Text = PowerList[indexPower2];
+            thirdPowerDataLabel.Text = PowerList[indexPower3];
+            fourthPowerDataLabel.Text = PowerList[indexPower4];
+
+            //instantiating power objects
+            Power power1 = new Power();
+            Power power2 = new Power();
+            Power power3 = new Power();
+            Power power4 = new Power();
+
+            // giving valuw to power objects
+            power1.Name = firstPowerDataLabel.Text;
+            power2.Name = secondPowerDataLabel.Text;
+            power3.Name = thirdPowerDataLabel.Text;
+            power4.Name = fourthPowerDataLabel.Text;
+
+            // copying values to character object of class Hero
+            Program.character.Powers.Add(power1);
+            Program.character.Powers.Add(power2);
+            Program.character.Powers.Add(power3);
+            Program.character.Powers.Add(power4);
+        }
+
+        private void generatePowersButton_Click(object sender, EventArgs e)
+        {
+            GenerateRandomPowers();
         }
     }
 }

@@ -78,13 +78,26 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nextButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.powersTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.firstPowerLabel = new System.Windows.Forms.Label();
+            this.secondPowerLabel = new System.Windows.Forms.Label();
+            this.thirdPowerLabel = new System.Windows.Forms.Label();
+            this.fourthPowerLabel = new System.Windows.Forms.Label();
+            this.powerHeaderLabel = new System.Windows.Forms.Label();
+            this.firstPowerDataLabel = new System.Windows.Forms.Label();
+            this.secondPowerDataLabel = new System.Windows.Forms.Label();
+            this.thirdPowerDataLabel = new System.Windows.Forms.Label();
+            this.fourthPowerDataLabel = new System.Windows.Forms.Label();
+            this.generatePowersButton = new System.Windows.Forms.Button();
             this.MainTabControl.SuspendLayout();
             this.identityPage.SuspendLayout();
             this.abilityPage.SuspendLayout();
             this.abilityTableLayoutPanel.SuspendLayout();
+            this.powersPage.SuspendLayout();
             this.characterSheet.SuspendLayout();
             this.heroToolStrip.SuspendLayout();
             this.heroMenuStrip.SuspendLayout();
+            this.powersTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTabControl
@@ -471,6 +484,8 @@
             // 
             // powersPage
             // 
+            this.powersPage.Controls.Add(this.powerHeaderLabel);
+            this.powersPage.Controls.Add(this.powersTableLayoutPanel);
             this.powersPage.Location = new System.Drawing.Point(4, 33);
             this.powersPage.Name = "powersPage";
             this.powersPage.Padding = new System.Windows.Forms.Padding(3);
@@ -633,6 +648,159 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // powersTableLayoutPanel
+            // 
+            this.powersTableLayoutPanel.ColumnCount = 4;
+            this.powersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.powersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.powersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.powersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.powersTableLayoutPanel.Controls.Add(this.firstPowerLabel, 0, 0);
+            this.powersTableLayoutPanel.Controls.Add(this.firstPowerDataLabel, 1, 0);
+            this.powersTableLayoutPanel.Controls.Add(this.secondPowerLabel, 2, 0);
+            this.powersTableLayoutPanel.Controls.Add(this.secondPowerDataLabel, 3, 0);
+            this.powersTableLayoutPanel.Controls.Add(this.thirdPowerLabel, 0, 1);
+            this.powersTableLayoutPanel.Controls.Add(this.thirdPowerDataLabel, 1, 1);
+            this.powersTableLayoutPanel.Controls.Add(this.fourthPowerLabel, 2, 1);
+            this.powersTableLayoutPanel.Controls.Add(this.fourthPowerDataLabel, 3, 1);
+            this.powersTableLayoutPanel.Controls.Add(this.generatePowersButton, 2, 3);
+            this.powersTableLayoutPanel.Location = new System.Drawing.Point(6, 77);
+            this.powersTableLayoutPanel.Name = "powersTableLayoutPanel";
+            this.powersTableLayoutPanel.RowCount = 4;
+            this.powersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.powersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.powersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.powersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.powersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.powersTableLayoutPanel.Size = new System.Drawing.Size(738, 323);
+            this.powersTableLayoutPanel.TabIndex = 0;
+            // 
+            // firstPowerLabel
+            // 
+            this.firstPowerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.firstPowerLabel.Location = new System.Drawing.Point(3, 0);
+            this.firstPowerLabel.Name = "firstPowerLabel";
+            this.firstPowerLabel.Size = new System.Drawing.Size(178, 80);
+            this.firstPowerLabel.TabIndex = 3;
+            this.firstPowerLabel.Text = "Power 1";
+            this.firstPowerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // secondPowerLabel
+            // 
+            this.secondPowerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.secondPowerLabel.Location = new System.Drawing.Point(371, 0);
+            this.secondPowerLabel.Name = "secondPowerLabel";
+            this.secondPowerLabel.Size = new System.Drawing.Size(178, 80);
+            this.secondPowerLabel.TabIndex = 4;
+            this.secondPowerLabel.Text = "Power 2";
+            this.secondPowerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // thirdPowerLabel
+            // 
+            this.thirdPowerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.thirdPowerLabel.Location = new System.Drawing.Point(3, 80);
+            this.thirdPowerLabel.Name = "thirdPowerLabel";
+            this.thirdPowerLabel.Size = new System.Drawing.Size(178, 80);
+            this.thirdPowerLabel.TabIndex = 5;
+            this.thirdPowerLabel.Text = "Power 3";
+            this.thirdPowerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fourthPowerLabel
+            // 
+            this.fourthPowerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fourthPowerLabel.Location = new System.Drawing.Point(371, 80);
+            this.fourthPowerLabel.Name = "fourthPowerLabel";
+            this.fourthPowerLabel.Size = new System.Drawing.Size(178, 80);
+            this.fourthPowerLabel.TabIndex = 6;
+            this.fourthPowerLabel.Text = "Power 4";
+            this.fourthPowerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // powerHeaderLabel
+            // 
+            this.powerHeaderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.powerHeaderLabel.Location = new System.Drawing.Point(13, 19);
+            this.powerHeaderLabel.Name = "powerHeaderLabel";
+            this.powerHeaderLabel.Size = new System.Drawing.Size(731, 58);
+            this.powerHeaderLabel.TabIndex = 3;
+            this.powerHeaderLabel.Text = "Powers";
+            this.powerHeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // firstPowerDataLabel
+            // 
+            this.firstPowerDataLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.firstPowerDataLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.firstPowerDataLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.firstPowerDataLabel.Location = new System.Drawing.Point(187, 0);
+            this.firstPowerDataLabel.Name = "firstPowerDataLabel";
+            this.firstPowerDataLabel.Size = new System.Drawing.Size(178, 80);
+            this.firstPowerDataLabel.TabIndex = 7;
+            this.firstPowerDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // secondPowerDataLabel
+            // 
+            this.secondPowerDataLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.secondPowerDataLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.secondPowerDataLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.secondPowerDataLabel.Location = new System.Drawing.Point(555, 0);
+            this.secondPowerDataLabel.Name = "secondPowerDataLabel";
+            this.secondPowerDataLabel.Size = new System.Drawing.Size(180, 80);
+            this.secondPowerDataLabel.TabIndex = 7;
+            this.secondPowerDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // thirdPowerDataLabel
+            // 
+            this.thirdPowerDataLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.thirdPowerDataLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.thirdPowerDataLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.thirdPowerDataLabel.Location = new System.Drawing.Point(187, 80);
+            this.thirdPowerDataLabel.Name = "thirdPowerDataLabel";
+            this.thirdPowerDataLabel.Size = new System.Drawing.Size(178, 80);
+            this.thirdPowerDataLabel.TabIndex = 7;
+            this.thirdPowerDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fourthPowerDataLabel
+            // 
+            this.fourthPowerDataLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fourthPowerDataLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.fourthPowerDataLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fourthPowerDataLabel.Location = new System.Drawing.Point(555, 80);
+            this.fourthPowerDataLabel.Name = "fourthPowerDataLabel";
+            this.fourthPowerDataLabel.Size = new System.Drawing.Size(180, 80);
+            this.fourthPowerDataLabel.TabIndex = 7;
+            this.fourthPowerDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // generatePowersButton
+            // 
+            this.generatePowersButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.powersTableLayoutPanel.SetColumnSpan(this.generatePowersButton, 2);
+            this.generatePowersButton.Location = new System.Drawing.Point(371, 243);
+            this.generatePowersButton.Name = "generatePowersButton";
+            this.generatePowersButton.Size = new System.Drawing.Size(364, 77);
+            this.generatePowersButton.TabIndex = 4;
+            this.generatePowersButton.Text = "Generate Powers";
+            this.generatePowersButton.UseVisualStyleBackColor = true;
+            this.generatePowersButton.Click += new System.EventHandler(this.generatePowersButton_Click);
+            // 
             // HeroGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -649,12 +817,14 @@
             this.identityPage.PerformLayout();
             this.abilityPage.ResumeLayout(false);
             this.abilityTableLayoutPanel.ResumeLayout(false);
+            this.powersPage.ResumeLayout(false);
             this.characterSheet.ResumeLayout(false);
             this.characterSheet.PerformLayout();
             this.heroToolStrip.ResumeLayout(false);
             this.heroToolStrip.PerformLayout();
             this.heroMenuStrip.ResumeLayout(false);
             this.heroMenuStrip.PerformLayout();
+            this.powersTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -710,5 +880,16 @@
         private System.Windows.Forms.Label physicalAbilitiesLabel;
         private System.Windows.Forms.Label mentalAbilitiesLabel;
         private System.Windows.Forms.Button generateAbilitiesButton;
+        private System.Windows.Forms.Label powerHeaderLabel;
+        private System.Windows.Forms.TableLayoutPanel powersTableLayoutPanel;
+        private System.Windows.Forms.Label firstPowerLabel;
+        private System.Windows.Forms.Label firstPowerDataLabel;
+        private System.Windows.Forms.Label secondPowerLabel;
+        private System.Windows.Forms.Label secondPowerDataLabel;
+        private System.Windows.Forms.Label thirdPowerLabel;
+        private System.Windows.Forms.Label thirdPowerDataLabel;
+        private System.Windows.Forms.Label fourthPowerLabel;
+        private System.Windows.Forms.Label fourthPowerDataLabel;
+        private System.Windows.Forms.Button generatePowersButton;
     }
 }
