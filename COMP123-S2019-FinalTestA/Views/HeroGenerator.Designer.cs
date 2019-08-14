@@ -643,6 +643,7 @@
             this.MainMenuStrip = this.heroMenuStrip;
             this.Name = "HeroGenerator";
             this.Text = "Hero Generator";
+            this.Load += new System.EventHandler(this.HeroGenerator_Load);
             this.MainTabControl.ResumeLayout(false);
             this.identityPage.ResumeLayout(false);
             this.identityPage.PerformLayout();

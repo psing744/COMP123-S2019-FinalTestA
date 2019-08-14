@@ -18,6 +18,8 @@ namespace COMP123_S2019_FinalTestA.Views
     public partial class HeroGenerator : COMP123_S2019_FinalTestA.Views.MasterForm
     {
         Random random = new Random();
+        string[] firstNames;
+        string[] lastNames;
 
         public HeroGenerator()
         {
@@ -52,16 +54,26 @@ namespace COMP123_S2019_FinalTestA.Views
 
         private void generateNameButton_Click(object sender, EventArgs e)
         {
+            GenerateNames();
+        }
+
+        private void LoadNames()
+        {
             //Inputing First Name
-            string[] firstNames;
             firstNames = File.ReadAllLines("../../Data/firstNames.txt");
-            int indexFirstName = random.Next(firstNames.Length-1);
-            firstNameDataLabel.Text = firstNames[indexFirstName];
+            
 
             //Inputing Last Name
-            string[] lastNames;
             lastNames = File.ReadAllLines("../../Data/lastNames.txt");
-            int indexLastName = random.Next(lastNames.Length-1);
+            
+        }
+
+        public void GenerateNames()
+        {
+            int indexFirstName = random.Next(firstNames.Length - 1);
+            firstNameDataLabel.Text = firstNames[indexFirstName];
+
+            int indexLastName = random.Next(lastNames.Length - 1);
             lastNameDataLabel.Text = lastNames[indexLastName];
         }
 
@@ -76,6 +88,12 @@ namespace COMP123_S2019_FinalTestA.Views
             intutionDataLabel.Text = random.Next(10, 50).ToString();
             psycheDataLabel.Text = random.Next(10, 50).ToString();
             popularityDataLabel.Text = random.Next(10, 50).ToString();
+        }
+
+        private void HeroGenerator_Load(object sender, EventArgs e)
+        {
+            LoadNames();
+            GenerateNames();
         }
     }
 }
