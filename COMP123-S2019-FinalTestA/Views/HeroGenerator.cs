@@ -55,6 +55,11 @@ namespace COMP123_S2019_FinalTestA.Views
         private void generateNameButton_Click(object sender, EventArgs e)
         {
             GenerateNames();
+
+            //giving names to character object of class hero
+            Program.character.FirstName = firstNameDataLabel.Text;
+            Program.character.LastName = lastNameDataLabel.Text;
+            Program.character.HeroName = heroNameTextBox.Text;
         }
 
         private void LoadNames()
